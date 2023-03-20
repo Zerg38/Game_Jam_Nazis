@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CameraMovement : MonoBehaviour
 {
-    private Camera cam;
+    public Camera cam;
      private Transform player;
     public float _x;
     // Start is called before the first frame update
