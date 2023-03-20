@@ -12,17 +12,24 @@ public class Jump : MonoBehaviour
    [SerializeField] private float timer = 4f;
     private float dir;
     [SerializeField] private bool canJump = false;
+    Vector3 d;
+    private Collider2D cl;
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         mv = GetComponent<Move>();
+        cl = GetComponent<Collider2D>();
     }
 
     // Update is called once per frame
     void Update()
     {
         dir = Input.GetAxis("Horizontal");
+
+         d = new Vector3(dir, 5);
+
+        Debug.DrawRay(transform.position,d, Color.red);
 
         if (Input.GetKey(KeyCode.Space))
         {
@@ -31,6 +38,7 @@ public class Jump : MonoBehaviour
             {
                 timer = 0;
             }
+
             mv.enabled = false;
             canJump = true;
             
@@ -51,12 +59,12 @@ public class Jump : MonoBehaviour
                 rb.AddForce(transform.up * Snormal, ForceMode2D.Impulse);
                 timer = 4f;
             }
-            else if(timer >= 2)
+            else if(timer >= 2f)
             {
                 rb.AddForce(transform.up * Smediano, ForceMode2D.Impulse);
                 timer = 4f;
             }
-            else if (timer >= 1)
+            else if (timer >= 0f)
             {
                 rb.AddForce(transform.up * Spotente, ForceMode2D.Impulse);
                 timer = 4f;
@@ -65,4 +73,6 @@ public class Jump : MonoBehaviour
             canJump = false;
         }
     }
+
+    //invertir la del rb.velocity x para el rebote
 }
