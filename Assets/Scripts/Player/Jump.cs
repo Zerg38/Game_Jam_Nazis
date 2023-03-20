@@ -14,13 +14,13 @@ public class Jump : MonoBehaviour
     public float S1;
     public float S2;
     public float S3;
-    public float S4;
+    
 
     [Header("Bounce Force")]
     public float bouce1;
     public float bouce2;
     public float bouce3;
-    public float bouce4;
+ 
 
     [Header("Timers")]
     public float jumpChargeTimer;
@@ -29,6 +29,7 @@ public class Jump : MonoBehaviour
     [Header("Booleans")]
     [SerializeField] private bool canJump = false;
     private bool autoJump = false;
+  
 
     // Start is called before the first frame update
     void Start()
@@ -62,10 +63,7 @@ public class Jump : MonoBehaviour
                 else
                 {
                     autoJump = false;
-                }
-
-
-                mv.enabled = false;
+                }                
                 canJump = true;
             }
     
@@ -86,11 +84,7 @@ public class Jump : MonoBehaviour
             rb.velocity = bound;
         }
 
-        if (autoJump && co.grounded)
-        {
-            rb.AddForce(transform.up * S4 + transform.right * dir * bouce4, ForceMode2D.Impulse);
-            timer = jumpChargeTimer;
-        }
+     
 
         if (!Input.GetKey(KeyCode.Space) && canJump)
         {
@@ -105,6 +99,13 @@ public class Jump : MonoBehaviour
                 timer = jumpChargeTimer;
             }
             canJump = false;
+         
+        }
+
+        if (autoJump && co.grounded)
+        {
+            rb.AddForce(transform.up * S3 + transform.right * dir * bouce3, ForceMode2D.Impulse);
+            timer = jumpChargeTimer;
         }
     }
 }
