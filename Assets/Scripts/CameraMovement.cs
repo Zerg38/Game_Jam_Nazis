@@ -15,14 +15,14 @@ public class CameraMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+       
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Player" )
+        if (collision.tag == "Player")
         {
-            cam.transform.position = new Vector3(0, _x, 0);
+            cam.transform.position = new Vector3(0, _x, -10);
         }
     }
 }

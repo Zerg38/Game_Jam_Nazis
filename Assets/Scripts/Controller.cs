@@ -5,8 +5,6 @@ using UnityEngine;
 public class Controller : MonoBehaviour
 {
     float moveInput;
-    [SerializeField] float speed;
-    [SerializeField] float jumpForce;
     Rigidbody2D rb;
     public List<Vector3> points;
     public bool grounded;
