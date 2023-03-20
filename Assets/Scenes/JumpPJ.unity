@@ -817,5 +817,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: Capsule
       objectReference: {fileID: 0}
+    - target: {fileID: 8334281603940097406, guid: bee6e960e96bc5a4ca7c532c02d31ab5, type: 3}
+      propertyPath: S3
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 8334281603940097406, guid: bee6e960e96bc5a4ca7c532c02d31ab5, type: 3}
+      propertyPath: bouce3
+      value: 20
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bee6e960e96bc5a4ca7c532c02d31ab5, type: 3}

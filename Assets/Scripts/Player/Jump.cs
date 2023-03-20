@@ -28,7 +28,6 @@ public class Jump : MonoBehaviour
 
     [Header("Booleans")]
     [SerializeField] private bool canJump = false;
-    private bool autoJump = false;
   
 
     // Start is called before the first frame update
@@ -43,7 +42,8 @@ public class Jump : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        dir = Input.GetAxis("Horizontal");
+      
+            dir = Input.GetAxis("Horizontal");
 
         if (co.grounded)
         {
@@ -54,17 +54,10 @@ public class Jump : MonoBehaviour
                 if (timer <= 0)
                 {
                     timer = 0;
-                }
-
-                if (timer == 0)
-                {
-                    autoJump = true;
-                }
-                else
-                {
-                    autoJump = false;
-                }                
+                }           
                 canJump = true;
+
+                mv.enabled = false;
             }
     
         }
@@ -84,28 +77,28 @@ public class Jump : MonoBehaviour
             rb.velocity = bound;
         }
 
-     
-
         if (!Input.GetKey(KeyCode.Space) && canJump)
         {
             if (timer >= 1.5f)
             {
-                rb.AddForce(transform.up * S1 + transform.right * dir * bouce1, ForceMode2D.Impulse);
+                rb.AddForce(transform.up * S1 + transform.right * dir * bouce1 , ForceMode2D.Impulse);
                 timer = jumpChargeTimer;
+                canJump = false;
             }
-            else if(timer >= 0.5f)
+            else if(timer >= 0.1f)
             {
                 rb.AddForce(transform.up * S2 + transform.right * dir * bouce2, ForceMode2D.Impulse);
                 timer = jumpChargeTimer;
+                canJump = false;
             }
-            canJump = false;
-         
+
+            else if (timer == 0)
+            {
+                rb.AddForce(transform.up * S3 + transform.right * dir * bouce3, ForceMode2D.Impulse);
+                timer = jumpChargeTimer;
+            }
         }
 
-        if (autoJump && co.grounded)
-        {
-            rb.AddForce(transform.up * S3 + transform.right * dir * bouce3, ForceMode2D.Impulse);
-            timer = jumpChargeTimer;
-        }
+        
     }
 }
