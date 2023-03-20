@@ -9,8 +9,10 @@ public class Controller : MonoBehaviour
     [SerializeField] float jumpForce;
     Rigidbody2D rb;
     public List<Vector3> points;
-
+    public bool grounded;
     public GameObject groundRayObject;
+    public LayerMask groundMask;
+
 
     // Start is called before the first frame update
     void Start()
@@ -22,18 +24,25 @@ public class Controller : MonoBehaviour
     void FixedUpdate()
     {
 
-    
-   
     }
 
     private void Update()
     {
-        RaycastHit2D hitGround = Physics2D.Raycast(groundRayObject.transform.position, -Vector2.up);
+        grounded = false;
         for (int i = 0; i < points.Count; i++)
         {
-            Debug.DrawRay(transform.position + points[i], -transform.up, Color.red);
+            Debug.DrawRay(groundRayObject.transform.position + points[i], -transform.up, Color.red);
+            RaycastHit2D hitGround = Physics2D.Raycast(groundRayObject.transform.position + points[i], -transform.up, 1f, groundMask);
+
+            if (hitGround.collider != null)
+            {
+                grounded = true;
+  
+            }
         }
 
-        
+
+
+
     }
 }
