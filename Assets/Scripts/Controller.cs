@@ -11,7 +11,6 @@ public class Controller : MonoBehaviour
     public List<Vector3> points;
 
     public GameObject groundRayObject;
-    public bool isGrounded;
 
     // Start is called before the first frame update
     void Start()
@@ -30,12 +29,10 @@ public class Controller : MonoBehaviour
     private void Update()
     {
         RaycastHit2D hitGround = Physics2D.Raycast(groundRayObject.transform.position, -Vector2.up);
-        for (int i = 0; i < points.Count ;i++)
+        for (int i = 0; i < points.Count; i++)
         {
             Debug.DrawRay(transform.position + points[i], -transform.up, Color.red);
         }
-
-        Debug.DrawRay(transform)
 
         
     }
