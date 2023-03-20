@@ -8,9 +8,11 @@ public class Move : MonoBehaviour
     private Rigidbody2D rb;
     private Vector3 Pinput;
     private Vector2 minput;
+    private Controller co;
     // Start is called before the first frame update
     void Start()
     {
+        co = GetComponent<Controller>();
         rb = GetComponent<Rigidbody2D>(); 
     }
 
@@ -23,7 +25,9 @@ public class Move : MonoBehaviour
 
     private void FixedUpdate()
     {
-
-        transform.position += Pinput * Time.fixedDeltaTime;
+        if (co.grounded)
+        {
+            transform.position += Pinput * Time.fixedDeltaTime;
+        }
     }
 }
