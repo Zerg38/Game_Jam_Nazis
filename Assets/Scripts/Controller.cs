@@ -10,8 +10,11 @@ public class Controller : MonoBehaviour
     Rigidbody2D rb;
     public List<Vector3> points;
     public bool grounded;
+    public bool walled;
     public GameObject groundRayObject;
     public LayerMask groundMask;
+    public LayerMask wallMask;
+    private Vector3 offset;
 
 
     // Start is called before the first frame update
@@ -39,6 +42,35 @@ public class Controller : MonoBehaviour
                 grounded = true;
   
             }
+        }
+
+        offset = new Vector3(0, 1f, 0);
+
+        Debug.DrawRay(groundRayObject.transform.position + offset, -transform.right, Color.magenta);
+        RaycastHit2D hitWall = Physics2D.Raycast(groundRayObject.transform.position + offset, -transform.right, 1f, wallMask);
+
+        Debug.DrawRay(groundRayObject.transform.position + offset, transform.right, Color.magenta);
+        RaycastHit2D hitWall_2 = Physics2D.Raycast(groundRayObject.transform.position + offset, transform.right, 1f, wallMask);
+
+
+
+
+        if (hitWall.collider != null)
+        {
+            walled = true;
+        }
+        else
+        {
+            walled = false;
+        }
+
+        if (hitWall_2.collider != null)
+        {
+            walled = true;
+        }
+        else
+        {
+            walled = false;
         }
 
 
