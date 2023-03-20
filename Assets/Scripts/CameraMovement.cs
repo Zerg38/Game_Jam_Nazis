@@ -6,6 +6,7 @@ public class CameraMovement : MonoBehaviour
 {
     private Camera cam;
      private Transform player;
+    public float _x;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,7 +22,7 @@ public class CameraMovement : MonoBehaviour
     {
         if (collision.tag == "Player" )
         {
-            cam.transform.position += new Vector3(0, 9.7f, 0);
+            cam.transform.position = new Vector3(0, _x, 0);
         }
     }
 }
