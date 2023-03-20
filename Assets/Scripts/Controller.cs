@@ -14,7 +14,8 @@ public class Controller : MonoBehaviour
     public GameObject groundRayObject;
     public LayerMask groundMask;
     public LayerMask wallMask;
-    private Vector3 offset;
+    public Vector3 Roffset;
+    public Vector3 Loffset;
 
 
     // Start is called before the first frame update
@@ -44,18 +45,17 @@ public class Controller : MonoBehaviour
             }
         }
 
-        offset = new Vector3(0, 1f, 0);
 
-        Debug.DrawRay(groundRayObject.transform.position + offset, -transform.right, Color.magenta);
-        RaycastHit2D hitWall = Physics2D.Raycast(groundRayObject.transform.position + offset, -transform.right, 1f, wallMask);
+        Debug.DrawRay(groundRayObject.transform.position + Roffset, -transform.right, Color.magenta);
+        RaycastHit2D hitWall = Physics2D.Raycast(groundRayObject.transform.position + Roffset, -transform.right, 1f, wallMask);
 
-        Debug.DrawRay(groundRayObject.transform.position + offset, transform.right, Color.magenta);
-        RaycastHit2D hitWall_2 = Physics2D.Raycast(groundRayObject.transform.position + offset, transform.right, 1f, wallMask);
-
+        Debug.DrawRay(groundRayObject.transform.position + Loffset, transform.right, Color.magenta);
+        RaycastHit2D hitWall_2 = Physics2D.Raycast(groundRayObject.transform.position + Loffset, transform.right, 1f, wallMask);
 
 
 
-        if (hitWall.collider != null)
+
+        if (hitWall.collider != null || hitWall_2.collider != null)
         {
             walled = true;
         }
@@ -63,16 +63,7 @@ public class Controller : MonoBehaviour
         {
             walled = false;
         }
-
-        if (hitWall_2.collider != null)
-        {
-            walled = true;
-        }
-        else
-        {
-            walled = false;
-        }
-
+     
 
 
 
