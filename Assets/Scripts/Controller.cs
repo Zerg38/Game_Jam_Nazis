@@ -34,13 +34,9 @@ public class Controller : MonoBehaviour
         for (int i = 0; i < points.Count; i++)
         {
             Debug.DrawRay(groundRayObject.transform.position + points[i], -transform.up, Color.red);
-            RaycastHit2D hitGround = Physics2D.Raycast(groundRayObject.transform.position + points[i], -transform.up, 1f, groundMask);
+            RaycastHit2D hitGround = Physics2D.Raycast(groundRayObject.transform.position + points[i], -transform.up, 1.1f, groundMask);
+            grounded |= hitGround.collider != null;
 
-            if (hitGround.collider != null)
-            {
-                grounded = true;
-  
-            }
         }
 
 
@@ -50,20 +46,6 @@ public class Controller : MonoBehaviour
         Debug.DrawRay(groundRayObject.transform.position + Loffset, transform.right, Color.magenta);
         RaycastHit2D hitWall_2 = Physics2D.Raycast(groundRayObject.transform.position + Loffset, transform.right, 1f, wallMask);
 
-
-
-
-        if (hitWall.collider != null || hitWall_2.collider != null)
-        {
-            walled = true;
-        }
-        else
-        {
-            walled = false;
-        }
-     
-
-
-
+        walled = hitWall.collider != null || hitWall_2.collider != null;
     }
 }
