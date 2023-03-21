@@ -8,10 +8,10 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/JumpPJ.unity
     guid: e5742d6105670a8408951c59d9051029
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/MapDesign.unity
     guid: ae04e04bd26c477459231cd919456b4e
   m_configObjects: {}

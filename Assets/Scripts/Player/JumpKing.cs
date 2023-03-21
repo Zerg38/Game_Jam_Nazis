@@ -11,17 +11,15 @@ public class JumpKing : MonoBehaviour
     [SerializeField] private float speed;
     private float moveInput;
     private float tempx;
-    public float diagonal;
+    
     
     [SerializeField]private float jumpForce;
     [SerializeField] private bool canJump = true;
-    [SerializeField] private bool canMove = true;
     [SerializeField] private bool jump = false;
+    public float jumpValue;
+    private float tempxjump;
 
-
-   
-  
-
+    public bool ChargingJump { get { return jumpForce > 0.5f; } }
 
     void Start()
     {
@@ -33,11 +31,13 @@ public class JumpKing : MonoBehaviour
     void Update()
     {
         moveInput = Input.GetAxis("Horizontal");
+        tempx = moveInput * speed;
+
+     
 
         if (Input.GetKey(KeyCode.Space) && co.grounded && canJump)
         {
-            jumpForce += 0.1f;
-            canMove = false;
+            jumpForce += jumpValue * Time.deltaTime;
         }
         
        if (Input.GetKeyUp(KeyCode.Space))
@@ -46,37 +46,34 @@ public class JumpKing : MonoBehaviour
             {
                 jump = true;
             }
-            canJump = true;
        }
-            tempx = moveInput * speed;
+       
     }
 
     private void FixedUpdate()
     {
         //move horizontal
-        if (jumpForce == 0.0f && co.grounded)
+        if (!ChargingJump && co.grounded)
         {
             rb.velocity = new Vector2(tempx, rb.velocity.y);
             canJump = true;
         }
-        if (canMove == false)
+
+        if (jumpForce >= 25f && co.grounded)
         {
-            rb.velocity = new Vector2(0, rb.velocity.y);
+            
+            Debug.Log(tempx);
+            rb.velocity = new Vector2(tempx /** Time.fixedDeltaTime*/, jumpForce);
+            ResetJump();
+            jump = false;
+
         }
 
-        if (jumpForce >= 20f && co.grounded)
-        {
-            float tempxjump = moveInput * speed;
-            rb.velocity = new Vector2(tempx, jumpForce);
-            ResetJump();
-            canMove = true;
-        }
         if (jump)
         {
-            float tempxjump = moveInput * speed;
-            rb.velocity = new Vector2(tempxjump, jumpForce);
+            Debug.Log(tempx);
+            rb.velocity = new Vector2(tempx  /** Time.fixedDeltaTime*/, jumpForce); 
             ResetJump();
-            canMove = true;
             jump = false;
         }
    
