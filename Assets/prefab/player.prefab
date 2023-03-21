@@ -185,8 +185,13 @@ MonoBehaviour:
   jumpForce: 0
   canJump: 1
   jump: 0
+<<<<<<< HEAD
   jumpValue: 0
 --- !u!70 &4594891959521178853
+=======
+  jumpValue: 20
+--- !u!70 &7555426131688303712
+>>>>>>> d15a47e37cc548417030d02638b86f4be089a7bf
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
