@@ -44,8 +44,8 @@ GameObject:
   - component: {fileID: 2026238870695280664}
   - component: {fileID: 2026238870695280676}
   - component: {fileID: 2026238870695280673}
-  - component: {fileID: 7555426131688303712}
-  - component: {fileID: 4623640169258888698}
+  - component: {fileID: 4594891959521178853}
+  - component: {fileID: 8271825160638481074}
   m_Layer: 7
   m_Name: player
   m_TagString: Player
@@ -110,7 +110,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -9095717837082945937, guid: bd3cb4af8406d4436a2ae8c2aafe1f8d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 04ed66572cfda66498732ad260c5967c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -134,12 +134,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   points:
-  - {x: 0, y: -0.04, z: 0}
-  - {x: 0.07, y: -0.04, z: 0}
-  - {x: -0.07, y: -0.04, z: 0}
+  - {x: -0.13, y: 0.34, z: 0}
+  - {x: -0.38, y: 0.34, z: 0}
+  - {x: 0.05, y: 0.34, z: 0}
   grounded: 1
   walled: 0
-  groundRayObject: {fileID: 2026238869311712628}
+  groundRayObject: {fileID: 0}
   groundMask:
     serializedVersion: 2
     m_Bits: 127
@@ -182,12 +182,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
-  diagonal: 1
   jumpForce: 0
   canJump: 1
-  canMove: 1
   jump: 0
---- !u!70 &7555426131688303712
+  jumpValue: 0
+--- !u!70 &4594891959521178853
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -200,10 +199,10 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 1, y: 2}
+  m_Offset: {x: -0.14601636, y: -0.06187123}
+  m_Size: {x: 0.5594764, y: 0.87625754}
   m_Direction: 0
---- !u!70 &4623640169258888698
+--- !u!70 &8271825160638481074
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -216,6 +215,6 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.00000011920929, y: 0.1172905}
-  m_Size: {x: 1.0521295, y: 1.8175478}
+  m_Offset: {x: -0.11879158, y: 0.0024735928}
+  m_Size: {x: 0.7327194, y: 0.84656286}
   m_Direction: 0
