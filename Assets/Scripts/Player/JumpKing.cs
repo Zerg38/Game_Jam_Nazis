@@ -16,6 +16,7 @@ public class JumpKing : MonoBehaviour
     [SerializeField]private float jumpForce;
     [SerializeField] private bool canJump = true;
     [SerializeField] private bool jump = false;
+    public bool ice;
     public float jumpValue;
     private float tempxjump;
 
@@ -31,6 +32,15 @@ public class JumpKing : MonoBehaviour
 
     void Update()
     {
+        if (ice)
+        {
+            rb.gravityScale = 150;
+        }
+        else
+        {
+            rb.gravityScale = 4;
+        }
+        
         moveInput = Input.GetAxis("Horizontal");
         tempx = moveInput * speed;
 

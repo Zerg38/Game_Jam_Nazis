@@ -1729,11 +1729,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7450780052363838033, guid: a0640abb27645df4cabda60e576e4a61, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -20.07945
+      value: -20.43
       objectReference: {fileID: 0}
     - target: {fileID: 7450780052363838033, guid: a0640abb27645df4cabda60e576e4a61, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.07201004
+      value: -2.32
       objectReference: {fileID: 0}
     - target: {fileID: 7450780052363838033, guid: a0640abb27645df4cabda60e576e4a61, type: 3}
       propertyPath: m_LocalPosition.z
@@ -4966,6 +4966,7 @@ GameObject:
   - component: {fileID: 1945469175}
   - component: {fileID: 1945469174}
   - component: {fileID: 1945469173}
+  - component: {fileID: 1945469178}
   m_Layer: 0
   m_Name: ice
   m_TagString: Untagged
@@ -5260,6 +5261,18 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!114 &1945469178
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1945469171}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3efbbf30ea4f499458ee3a14f492a1d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2119862596
 GameObject:
   m_ObjectHideFlags: 0
