@@ -1,6 +1,10 @@
 fileFormatVersion: 2
 <<<<<<<< HEAD:Assets/Scripts/miCamera/CameraUp.cs.meta
+<<<<<<< HEAD
 guid: 1be379ab34ce76c47a142eab296a77d8
+=======
+guid: a843877e00a4a3748893fcca9f3e42dd
+>>>>>>> 21a02df9a37b90538e2047902e8961f8b45e3d83
 ========
 guid: fdce5b8fec4830d4682ec7fe802b3f8b
 >>>>>>>> ed56bd794b0e6d1426951b95b912c55e65925c9b:Assets/Scripts/Camera.cs.meta
