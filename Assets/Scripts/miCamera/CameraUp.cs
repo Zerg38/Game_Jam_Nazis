@@ -2,27 +2,30 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CameraMovement : MonoBehaviour
+public class CameraUp : MonoBehaviour
 {
-    public Camera cam;
-     private Transform player;
-    public float _x;
+    private Collider2D cl;
+    public Transform camera;
+    public Vector3 position;
     // Start is called before the first frame update
     void Start()
     {
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-       
+        
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Player")
         {
-            cam.transform.position = new Vector3(0, _x, -10);
+
+            camera.transform.position = position;
+
         }
     }
 }

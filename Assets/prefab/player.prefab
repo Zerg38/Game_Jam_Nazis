@@ -182,11 +182,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
-  diagonal: 1
   jumpForce: 0
   canJump: 1
-  canMove: 1
   jump: 0
+  jumpValue: 20
 --- !u!70 &7555426131688303712
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
