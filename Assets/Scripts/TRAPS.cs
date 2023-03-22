@@ -6,6 +6,8 @@ public class TRAPS : MonoBehaviour
 {
     public GameObject player;
     public Vector3 a;
+    public AudioSource AudioSource;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -26,6 +28,7 @@ public class TRAPS : MonoBehaviour
 
 
             player.transform.position = a;
+            AudioSource.Play();
 
         }
     }
