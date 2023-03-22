@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 1504486209726113789}
   - component: {fileID: 8736952411238000748}
   - component: {fileID: 9067269709229116524}
-  - component: {fileID: 686915183021907467}
   - component: {fileID: 9112513708638931992}
   - component: {fileID: 5057118909054611316}
   - component: {fileID: 8394287610556897190}
@@ -113,22 +112,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!70 &686915183021907467
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7201990896494941926}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.008295059, y: 0.09365296}
-  m_Size: {x: 0.53217316, y: 0.79152775}
-  m_Direction: 0
 --- !u!70 &9112513708638931992
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -214,6 +197,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f759185202647e41887a7523e1d9eab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  praticulas: {fileID: 0}
 --- !u!1 &9014973683781654473
 GameObject:
   m_ObjectHideFlags: 0

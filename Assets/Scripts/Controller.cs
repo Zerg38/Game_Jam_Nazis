@@ -13,6 +13,7 @@ public class Controller : MonoBehaviour
     public GameObject groundRayObject;
     public LayerMask groundMask;
     public LayerMask rampaMask;
+    public float disatance;
 
     // Start is called before the first frame update
     void Start()
@@ -31,8 +32,8 @@ public class Controller : MonoBehaviour
         grounded = false;
         for (int i = 0; i < points.Count; i++)
         {
-            Debug.DrawRay(groundRayObject.transform.position + points[i], -transform.up ,Color.red);
-            RaycastHit2D hitGround = Physics2D.Raycast(groundRayObject.transform.position + points[i], -transform.up, 1.1f, groundMask);
+            Debug.DrawRay(groundRayObject.transform.position + points[i], -transform.up * disatance, Color.red);
+            RaycastHit2D hitGround = Physics2D.Raycast(groundRayObject.transform.position + points[i], -transform.up, disatance, groundMask);
             grounded |= hitGround.collider != null;
 
         }
@@ -41,7 +42,7 @@ public class Controller : MonoBehaviour
         deslizar = false;
         for (int i = 0; i < points.Count; i++)
         {
-            Debug.DrawRay(groundRayObject.transform.position + points[i], -transform.up, Color.red);
+            Debug.DrawRay(groundRayObject.transform.position + points[i], -transform.up * 1.1f, Color.red);
             RaycastHit2D hitGround = Physics2D.Raycast(groundRayObject.transform.position + points[i], -transform.up, 1.1f, rampaMask);
             deslizar |= hitGround.collider != null;
         }

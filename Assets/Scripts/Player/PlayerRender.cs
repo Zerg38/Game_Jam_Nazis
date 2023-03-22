@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerRender : MonoBehaviour
 {
     SpriteRenderer sp;
+    [SerializeField] private ParticleSystem praticulas;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,10 +20,12 @@ public class PlayerRender : MonoBehaviour
         if (a < 0)
         {
             sp.flipX = true;
+      
         }
         else
         {
             sp.flipX = false;
+            
         }
     }
 }
