@@ -72,11 +72,11 @@ public class JumpKing : MonoBehaviour
             canJump = true;
         }
 
-        if (jumpForce >= 25f && co.grounded)
+        if (jumpForce >= 26f && co.grounded)
         {
             
             Debug.Log(tempx);
-            rb.velocity = new Vector2(tempx /** Time.fixedDeltaTime*/, jumpForce);
+            rb.velocity = new Vector2(tempx * 10  * Time.fixedDeltaTime , jumpForce);
             ResetJump();
             canMove = true;
             jump = false;
@@ -86,7 +86,7 @@ public class JumpKing : MonoBehaviour
         if (jump)
         {
             Debug.Log(tempx);
-            rb.velocity = new Vector2(tempx  /** Time.fixedDeltaTime*/, jumpForce); 
+            rb.velocity = new Vector2(tempx * 10 * Time.fixedDeltaTime, jumpForce); 
             ResetJump();
             jump = false;
         }

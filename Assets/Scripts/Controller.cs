@@ -8,10 +8,11 @@ public class Controller : MonoBehaviour
     Rigidbody2D rb;
     public List<Vector3> points;
     public bool grounded;
+    public bool deslizar;
     public bool walled;
     public GameObject groundRayObject;
     public LayerMask groundMask;
-    public LayerMask wallMask;
+    public LayerMask rampaMask;
 
     // Start is called before the first frame update
     void Start()
@@ -34,6 +35,15 @@ public class Controller : MonoBehaviour
             RaycastHit2D hitGround = Physics2D.Raycast(groundRayObject.transform.position + points[i], -transform.up, 1.1f, groundMask);
             grounded |= hitGround.collider != null;
 
+        }
+
+
+        deslizar = false;
+        for (int i = 0; i < points.Count; i++)
+        {
+            Debug.DrawRay(groundRayObject.transform.position + points[i], -transform.up, Color.red);
+            RaycastHit2D hitGround = Physics2D.Raycast(groundRayObject.transform.position + points[i], -transform.up, 1.1f, rampaMask);
+            deslizar |= hitGround.collider != null;
         }
     }
 }
