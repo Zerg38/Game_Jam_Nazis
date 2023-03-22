@@ -5,9 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class ChangeScene : MonoBehaviour
 {
+    public AudioSource AudioSource;
     // Start is called before the first frame update
     public void Game(int sceneID)
     {
+        AudioSource.Play();
         SceneManager.LoadScene(sceneID);
     }
 
