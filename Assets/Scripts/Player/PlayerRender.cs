@@ -22,7 +22,7 @@ public class PlayerRender : MonoBehaviour
             sp.flipX = true;
       
         }
-        else
+        else if(a > 0) 
         {
             sp.flipX = false;
             

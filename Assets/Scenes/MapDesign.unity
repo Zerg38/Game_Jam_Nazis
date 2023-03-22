@@ -9757,6 +9757,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5057118909054611316, guid: df88f2b8712f1d94fab9677eee0487bb, type: 3}
+      propertyPath: disatance
+      value: 1.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5057118909054611316, guid: df88f2b8712f1d94fab9677eee0487bb, type: 3}
       propertyPath: points.Array.data[0].x
       value: -0.18
       objectReference: {fileID: 0}
