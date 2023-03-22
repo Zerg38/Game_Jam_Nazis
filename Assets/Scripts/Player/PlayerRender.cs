@@ -5,11 +5,13 @@ using UnityEngine;
 public class PlayerRender : MonoBehaviour
 {
     SpriteRenderer sp;
+    JumpKing jp;
     [SerializeField] private ParticleSystem praticulas;
     // Start is called before the first frame update
     void Start()
     {
         sp = GetComponent<SpriteRenderer>();
+        jp = GetComponent<JumpKing>();
     }
 
     // Update is called once per frame
@@ -27,5 +29,8 @@ public class PlayerRender : MonoBehaviour
             sp.flipX = false;
             
         }
+
+
+
     }
 }
