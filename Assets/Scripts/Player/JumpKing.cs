@@ -11,9 +11,9 @@ public class JumpKing : MonoBehaviour
     [SerializeField] private float speed;
     private float moveInput;
     private float tempx;
-    
-    
-    [SerializeField]private float jumpForce;
+    SpriteRenderer sp;
+
+    public float jumpForce;
     [SerializeField] private bool canJump = true;
     [SerializeField] private bool jump = false;
     public bool ice;
@@ -25,6 +25,7 @@ public class JumpKing : MonoBehaviour
 
     void Start()
     {
+        sp = GetComponent<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
         cl = GetComponent<Collider2D>();
         co = GetComponent<Controller>();
@@ -40,20 +41,40 @@ public class JumpKing : MonoBehaviour
         {
             rb.gravityScale = 4;
         }
-        
-        moveInput = Input.GetAxis("Horizontal");
+        if (co.grounded)
+        {
+            moveInput = Input.GetAxis("Horizontal");
+        }
         tempx = moveInput * speed;
 
-     
-
-        if (Input.GetKey(KeyCode.Space) && co.grounded && canJump)
+        if (jumpForce == 0)
         {
-            canMove = false;
-            jumpForce += jumpValue * Time.deltaTime;
+            sp.color = Color.white;
         }
+
+            if (Input.GetKey(KeyCode.Space) && co.grounded && canJump)
+            {
+                canMove = false;
+                jumpForce += jumpValue * Time.deltaTime;
+
+                if (jumpForce > 0.1)
+                {
+                sp.color = Color.green;
+                }
+                if (jumpForce > 10)
+                {
+                sp.color = Color.yellow;
+                }
+                if (jumpForce > 20)
+                {
+                sp.color = Color.red;
+                }
+            }
+
         
        if (Input.GetKeyUp(KeyCode.Space))
        {
+            sp.color = Color.white;
             canMove = true;
             if (co.grounded)
             {
@@ -72,11 +93,11 @@ public class JumpKing : MonoBehaviour
             canJump = true;
         }
 
-        if (jumpForce >= 25f && co.grounded)
+        if (jumpForce >= 24f && co.grounded)
         {
-            
+            sp.color = Color.white;
             Debug.Log(tempx);
-            rb.velocity = new Vector2(tempx /** Time.fixedDeltaTime*/, jumpForce);
+            rb.velocity = new Vector2(tempx * 5  * Time.fixedDeltaTime , jumpForce);
             ResetJump();
             canMove = true;
             jump = false;
@@ -86,7 +107,7 @@ public class JumpKing : MonoBehaviour
         if (jump)
         {
             Debug.Log(tempx);
-            rb.velocity = new Vector2(tempx  /** Time.fixedDeltaTime*/, jumpForce); 
+            rb.velocity = new Vector2(tempx * 5 * Time.fixedDeltaTime, jumpForce); 
             ResetJump();
             jump = false;
         }
