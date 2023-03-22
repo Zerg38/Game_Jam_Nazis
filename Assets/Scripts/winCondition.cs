@@ -5,13 +5,13 @@ using UnityEngine;
 public class winCondition : MonoBehaviour
 {
     public AudioSource Audio;
-    public Canvas canvas;
+    public GameObject canvas;
     public AudioSource Audio_enter;
     // Start is called before the first frame update
     void Start()
     {
  
-        canvas.enabled = false;
+        canvas.SetActive(false);
     }
 
     // Update is called once per frame
@@ -23,7 +23,7 @@ public class winCondition : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Audio.Play();
-        canvas.enabled = true;
+        canvas.SetActive(true);
         Audio_enter.Pause();
     }
 }
